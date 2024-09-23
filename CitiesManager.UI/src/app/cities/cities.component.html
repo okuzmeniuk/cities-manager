@@ -1,0 +1,105 @@
+<h2>Cities</h2>
+
+<div class="flex">
+  <div class="flex-1">
+    <div class="table-container">
+      <table class="table w-100" [formGroup]="putCityForm">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>City Name</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody formArrayName="cities">
+          @for(city of cities; track city.cityID){
+          <tr>
+            <td>
+              {{ $index + 1 }}
+            </td>
+
+            <td [formGroupName]="$index">
+              <input
+                type="text"
+                formControlName="cityName"
+                [ngClass]="{
+                  'border-less-textbox': city.cityID != editCityID,
+                  'form-input': city.cityID == editCityID
+                }"
+                [disableControl]="city.cityID != editCityID"
+              />
+            </td>
+
+            <td style="width: 200px">
+              @if(city.cityID != editCityID){
+              <button
+                class="button button-blue-back"
+                (click)="editClicked(city)"
+                type="button"
+              >
+                Edit
+              </button>
+              } @else{
+              <button
+                class="button button-blue-back"
+                (click)="updateClicked($index)"
+                type="submit"
+              >
+                Update
+              </button>
+              } @if(city.cityID != editCityID){
+              <button
+                class="button button-red-back ml"
+                (click)="deleteClicked(city, $index)"
+                type="button"
+              >
+                Delete
+              </button>
+              }
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <button
+      type="button"
+      class="button button-blue-back mt"
+      (click)="refreshClicked()"
+    >
+      Refresh
+    </button>
+  </div>
+
+  <div class="flex-1 w-50">
+    <div class="form-container">
+      <h3>Create City</h3>
+
+      <form [formGroup]="postCityForm" (ngSubmit)="postCitySubmitted()">
+        <div class="form-field flex">
+          <div class="w-25">
+            <label for="CityName" class="form-label pt">City Name</label>
+          </div>
+          <div class="flex-1">
+            <input type="text" class="form-input" formControlName="cityName" />
+
+            @if((postCity_CityNameControl.touched || isPostCityFormSubmitted) &&
+            (postCity_CityNameControl.errors?.['required'])){
+            <span class="text-red">City name cannot be blank</span>
+            }
+          </div>
+
+          <div class="form-field flex">
+            <div class="w-25"></div>
+
+            <div class="flex-1">
+              <button class="button button-green-back">Create</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
