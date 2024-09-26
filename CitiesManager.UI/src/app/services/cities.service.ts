@@ -3,7 +3,7 @@ import { City } from '../models/city';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_BASE_URL = 'https://localhost:7009/api/';
+const API_BASE_URL = 'https://localhost:7009/api/Cities/';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,7 @@ export class CitiesService {
       'Authorization',
       `Bearer ${localStorage['token']}`
     );
-    return this.httpClient.get<City[]>(`${API_BASE_URL}v1/Cities`, {
+    return this.httpClient.get<City[]>(`${API_BASE_URL}`, {
       headers: headers,
     });
   }
@@ -27,7 +27,7 @@ export class CitiesService {
       'Authorization',
       `Bearer ${localStorage['token']}`
     );
-    return this.httpClient.post<City>(`${API_BASE_URL}v1/Cities`, city, {
+    return this.httpClient.post<City>(`${API_BASE_URL}`, city, {
       headers: headers,
     });
   }
@@ -37,13 +37,9 @@ export class CitiesService {
       'Authorization',
       `Bearer ${localStorage['token']}`
     );
-    return this.httpClient.put<string>(
-      `${API_BASE_URL}v1/Cities/${city.cityID}`,
-      city,
-      {
-        headers: headers,
-      }
-    );
+    return this.httpClient.put<string>(`${API_BASE_URL}/${city.cityID}`, city, {
+      headers: headers,
+    });
   }
 
   deleteCity(cityId: string | null): Observable<string> {
@@ -51,11 +47,8 @@ export class CitiesService {
       'Authorization',
       `Bearer ${localStorage['token']}`
     );
-    return this.httpClient.delete<string>(
-      `${API_BASE_URL}v1/Cities/${cityId}`,
-      {
-        headers: headers,
-      }
-    );
+    return this.httpClient.delete<string>(`${API_BASE_URL}${cityId}`, {
+      headers: headers,
+    });
   }
 }

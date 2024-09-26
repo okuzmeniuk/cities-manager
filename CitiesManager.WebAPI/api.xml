@@ -4,12 +4,12 @@
         <name>CitiesManager.WebAPI</name>
     </assembly>
     <members>
-        <member name="T:CitiesManager.WebAPI.Controllers.v1.AccountController">
+        <member name="T:CitiesManager.WebAPI.Controllers.AccountController">
             <summary>
             
             </summary>
         </member>
-        <member name="M:CitiesManager.WebAPI.Controllers.v1.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{CitiesManager.Core.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.SignInManager{CitiesManager.Core.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{CitiesManager.Core.Identity.ApplicationRole},CitiesManager.Core.ServiceContracts.IJwtService)">
+        <member name="M:CitiesManager.WebAPI.Controllers.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{CitiesManager.Core.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.SignInManager{CitiesManager.Core.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{CitiesManager.Core.Identity.ApplicationRole},CitiesManager.Core.ServiceContracts.IJwtService)">
             <summary>
             
             </summary>
@@ -18,44 +18,38 @@
             <param name="roleManager"></param>
             <param name="jwtService"></param>
         </member>
-        <member name="M:CitiesManager.WebAPI.Controllers.v1.AccountController.PostRegister(CitiesManager.Core.DTO.RegisterDTO)">
+        <member name="M:CitiesManager.WebAPI.Controllers.AccountController.PostRegister(CitiesManager.Core.DTO.RegisterDTO)">
             <summary>
             
             </summary>
             <param name="registerDTO"></param>
             <returns></returns>
         </member>
-        <member name="M:CitiesManager.WebAPI.Controllers.v1.AccountController.IsEmailAlreadyRegistered(System.String)">
+        <member name="M:CitiesManager.WebAPI.Controllers.AccountController.IsEmailAlreadyRegistered(System.String)">
             <summary>
             
             </summary>
             <param name="email"></param>
             <returns></returns>
         </member>
-        <member name="M:CitiesManager.WebAPI.Controllers.v1.AccountController.PostLogin(CitiesManager.Core.DTO.LoginDTO)">
+        <member name="M:CitiesManager.WebAPI.Controllers.AccountController.PostLogin(CitiesManager.Core.DTO.LoginDTO)">
             <summary>
             
             </summary>
             <param name="loginDTO"></param>
             <returns></returns>
         </member>
-        <member name="M:CitiesManager.WebAPI.Controllers.v1.AccountController.GetLogout">
+        <member name="M:CitiesManager.WebAPI.Controllers.AccountController.GetLogout">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CitiesManager.WebAPI.Controllers.v1.CitiesController.GetCities">
+        <member name="M:CitiesManager.WebAPI.Controllers.CitiesController.GetCities">
             <summary>
             Gets the list of cities from 'Cities' table
             </summary>
             <returns>List of cities</returns>
-        </member>
-        <member name="M:CitiesManager.WebAPI.Controllers.v2.CitiesController.GetCities">
-            <summary>
-            Gets the list of city names from 'Cities' table
-            </summary>
-            <returns>List of city names</returns>
         </member>
     </members>
 </doc>
